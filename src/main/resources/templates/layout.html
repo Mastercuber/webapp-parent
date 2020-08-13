@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-    <head>
-        <title>Layout</title>
-        <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet" />
-        <script href="/js/vld.js"></script>
-    </head>
+    <head th:replace="fragments/head"/>
+
     <body>
-        <div class="container">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <a class="brand" href="/"> Home </a>
-                    <ul class="nav">
-                        <li><a th:href="@{/admin}"> Users </a></li>
-                    </ul>
-                    <ul class="nav pull-right">
-                        <li><a th:href="@{/logout}" class="menu-right" > Logout </a></li>
-                    </ul>
+        <nav th:replace="fragments/navbar"/>
+
+        <main class="w3-bar">
+            <aside id="sidebar" class="w3-bar-item">
+                <h3 class="w3-padding">Kategorien</h3>
+                <ul class="w3-padding w3-ul">
+                    <li><a th:href="@{./(genre=all)}">Alle Spiele</a></li>
+                    <li><a th:href="@{./(genre=action)}">Action</a></li>
+                    <li><a th:href="@{./(genre=adventure)}">Adventure</a></li>
+                    <li><a th:href="@{./(genre=jumpAndRun)}">Jump & Run</a></li>
+                    <li><a th:href="@{./(genre=strategy)}">Strategie</a></li>
+                </ul>
+            </aside>
+            <div id="content" class="w3-bar-item w3-bar">
+                <div class="center-container" style="margin-left: auto; margin-right: auto; width: 100%">
+                    <div th:each="product : ${products}" class="w3-bar-item w3-card w3-padding w3-margin" style="width: 300px; min-height: 400px">
+                        <img th:src="${product.coverImagePath}" class="w3-image"/>
+                        <div class="product-short-details">
+                            <p th:text="${product.name}"></p>
+                            <p th:text="${product.shortDescription}"></p>
+                            <form method="post" th:action="@{cart(productId=${product.id})}" title="Dem Warenkorb hinzufügen" class="w3-right">
+                                <button class="w3-badge w3-padding w3-light-green w3-hover-green" type="submit" style="transition: color 0.3s; cursor: pointer;"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <h1 layout:fragment="header">Layout</h1>
-            <div layout:fragment="content">Some content</div>
-        </div>
+        </main>
+
+        <footer th:replace="fragments/footer"/>
     </body>
 </html>

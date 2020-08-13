@@ -32,6 +32,7 @@ public class AvensioUserDetailsService implements UserDetailsService {
     @Autowired
     private IPrincipalJpaDao principalJpaDao;
 
+    @Override
     public UserDetails loadUserByUsername(final String email) throws UsernameNotFoundException {
         final User user = userJpaDao.findByEmail(email);
         final Principal principal = principalJpaDao.findByEmail(email);

@@ -7,4 +7,6 @@ public interface WebConstants {
 
     String PATH_SEP = "/";
     String ADMIN = "/admin";
+    String PRODUCTS = "/products";
+    String CART = "/cart";
 }

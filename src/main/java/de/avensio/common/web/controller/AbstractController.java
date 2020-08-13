@@ -28,7 +28,7 @@ public abstract class AbstractController<T extends IEntity> extends AbstractRead
         RestPreconditions.checkRequestElementNotNull(resource);
         RestPreconditions.checkRequestElementNotNull(resource.getId());
         RestPreconditions.checkRequestState(resource.getId() == id);
-        RestPreconditions.checkNotNull(getService().findOne(resource.getId()));
+        RestPreconditions.checkNotNull(getService().findById(resource.getId()));
 
         getService().update(resource);
     }

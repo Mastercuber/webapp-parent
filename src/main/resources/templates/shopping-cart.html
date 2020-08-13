@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+    <head th:replace="fragments/head"/>
+
+    <body>
+        <nav th:replace="fragments/navbar"/>
+
+        <main>
+            <div style="background-color: bisque">
+                <div class="w3-row w3-padding w3-content">
+                    <h3>Warenkorb</h3>
+                    <hr/>
+                    <div class="w3-twothird products">
+                        <div th:each="product : ${products}" class="w3-card w3-padding product" style="margin-bottom: 16px">
+                            <div class="w3-bar" style="width: 100%">
+                                <img class="w3-bar-item" th:src="${product.coverImagePath}" style="width: 200px"/>
+                                <div class="w3-bar-item" style="position: relative; width: calc(100% - 200px)">
+                                    <form class="w3-right" method="post" th:action="@{cart(productId=${product.id},delete=true)}" style="position: absolute; right: 0; top: 0;">
+                                        <button type="submit" class="w3-badge w3-red" style="font-weight: bold; cursor: pointer">X</button>
+                                    </form>
+                                    <p th:text="${product.name}"></p>
+                                    <p th:text="${product.shortDescription}"></p>
+                                    <input type="number" min="0" value="1"/>
+                                    <p th:text="${product.price} + ' €'"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w3-padding w3-third">
+                        <div class="w3-padding" style="border: 1px solid gray; border-radius: 6px">
+                            <p>Details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer th:replace="fragments/footer"/>
+    </body>
+</html>

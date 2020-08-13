@@ -29,7 +29,7 @@ public abstract class AbstractReadOnlyController<T extends IEntity> {
     // find - one
 
     protected final T findOneInternal(final Long id) {
-        return RestPreconditions.checkNotNull(getService().findOne(id));
+        return RestPreconditions.checkNotNull(getService().findById(id));
     }
 
     // find - all

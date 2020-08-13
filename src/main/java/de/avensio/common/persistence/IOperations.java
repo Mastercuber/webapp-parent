@@ -7,7 +7,7 @@ public interface IOperations<T extends Serializable> {
 
     // find - one
 
-    T findOne(final long id);
+    T findById(final long id);
 
     /**
      * - contract: if nothing is found, an empty list will be returned to the calling client <br>

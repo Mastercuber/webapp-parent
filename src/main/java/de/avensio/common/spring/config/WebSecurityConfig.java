@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/user/changePassword*",
                         "/user/savePassword*",
                         "/js/**", "/css/**", "/img/**",
-                        "/auth/**")
+                        "/auth/**", "/", "/cart")
                     .permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                /* .anyRequest()

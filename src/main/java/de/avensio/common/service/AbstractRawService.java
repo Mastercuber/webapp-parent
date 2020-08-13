@@ -31,7 +31,7 @@ public abstract class AbstractRawService<T extends IEntity> implements IRawServi
 
     @Override
     @Transactional(readOnly = true)
-    public T findOne(final long id) {
+    public T findById(final long id) {
         return getDao().findById(id).get();
     }
 

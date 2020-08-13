@@ -56,14 +56,14 @@ public class SecuritySetup implements ApplicationListener<ContextRefreshedEvent>
     @Override
     public final void onApplicationEvent(final ContextRefreshedEvent event) {
         if (!setupDone) {
-            logger.info("Executing Setup");
+            logger.info("Executing Security Setup");
 
             createPrivileges();
             createRoles();
             createPrincipals();
 
             setupDone = true;
-            logger.info("Setup Done");
+            logger.info("Security Setup Done");
         }
     }
 

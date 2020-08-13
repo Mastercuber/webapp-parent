@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>de.avensio</groupId>
-	<artifactId>parent</artifactId>
+	<artifactId>gameshop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>webapp-template</name>
-	<description>Webapp Template Parent</description>
+	<name>Gameshop</name>
+	<description>Gameshop project</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -62,6 +62,10 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-test</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
@@ -99,11 +103,6 @@
             <artifactId>validation-api</artifactId>
         </dependency>
 
-		<!-- HashCode, Equals and toString Builder etc.-->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
 
 		<!-- Password Validation -->
 		<dependency>
@@ -118,20 +117,29 @@
 			<artifactId>guava</artifactId>
 			<version>21.0</version>
 		</dependency>
+		<!-- HashCode, Equals and toString Builder etc.-->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.3.6.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-test</artifactId>
-		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- Advanced Mime-Type detection capability -->
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>1.21</version>
 		</dependency>
 	</dependencies>
 
