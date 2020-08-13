@@ -1,8 +1,8 @@
-package de.avensio.common.spring;
+package de.avensio.common.web.session;
 
 /**
  * Interface which provides Session keys
  */
-public interface SessionConstants {
+public interface HttpSessionConstants {
     String SHOPPING_CART_ITEMS = "shopping-cart-items";
 }

@@ -1,7 +1,7 @@
 package de.avensio.common.service.shop.impl;
 
 import de.avensio.common.service.shop.IShoppingCartService;
-import de.avensio.common.spring.SessionConstants;
+import de.avensio.common.web.session.HttpSessionConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,21 +17,15 @@ public class ShoppingCartServiceImpl implements IShoppingCartService {
 
     @Override
     public void deleteItem(Long id) {
-        Set<Long> cartItems = (HashSet<Long>) session.getAttribute(SessionConstants.SHOPPING_CART_ITEMS);
-
-        if (cartItems == null || cartItems.isEmpty()) return;
+        Set<Long> cartItems = (HashSet<Long>) session.getAttribute(HttpSessionConstants.SHOPPING_CART_ITEMS);
+        if (cartItems.isEmpty()) return;
 
         cartItems.remove(id);
-        session.setAttribute(SessionConstants.SHOPPING_CART_ITEMS, cartItems);
     }
 
     @Override
     public void addItem(Long id) {
-        Set<Long> cartItems = (HashSet<Long>) session.getAttribute(SessionConstants.SHOPPING_CART_ITEMS);
-
-        if (cartItems == null) cartItems = new HashSet<>();
-
+        Set<Long> cartItems = (HashSet<Long>) session.getAttribute(HttpSessionConstants.SHOPPING_CART_ITEMS);
         cartItems.add(id);
-        session.setAttribute(SessionConstants.SHOPPING_CART_ITEMS, cartItems);
     }
 }

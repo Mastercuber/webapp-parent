@@ -42,6 +42,11 @@ public class ProductServiceImpl extends AbstractService<Product> implements IPro
     }
 
     @Override
+    public List<Product> findProductsByName(String searchTerm) {
+        return getDao().findAllByNameContains(searchTerm);
+    }
+
+    @Override
     public Product findByName(String name) {
         return getDao().findByName(name);
     }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-    <head th:replace="fragments/head"/>
+    <head th:replace="shop/fragments/head"/>
 
     <body>
-        <nav th:replace="fragments/navbar"/>
+        <nav th:replace="shop/fragments/navbar"/>
 
         <main class="w3-bar">
             <aside id="sidebar" class="w3-bar-item">
@@ -19,7 +19,7 @@
             </aside>
             <div id="content" class="w3-bar-item w3-bar">
                 <div class="center-container" style="margin-left: auto; margin-right: auto; width: 100%">
-                    <div th:each="product : ${products}" class="w3-bar-item w3-card w3-padding w3-margin" style="width: 300px; min-height: 400px">
+                    <a th:href="@{|product/${product.id}|}" th:each="product : ${products}" class="w3-bar-item w3-card w3-padding w3-margin" style="width: 300px; min-height: 400px; text-decoration: none">
                         <img th:src="${product.coverImagePath}" class="w3-image"/>
                         <div class="product-short-details">
                             <p th:text="${product.name}"></p>
@@ -28,11 +28,11 @@
                                 <button class="w3-badge w3-padding w3-light-green w3-hover-green" type="submit" style="transition: color 0.3s; cursor: pointer;"><i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i></button>
                             </form>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </main>
 
-        <footer th:replace="fragments/footer"/>
+        <footer th:replace="shop/fragments/footer"/>
     </body>
 </html>

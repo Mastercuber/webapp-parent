@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+    <head th:replace="shop/fragments/head"/>
+
+    <body>
+        <nav th:replace="shop/fragments/navbar"/>
+        <main class="w3-bar">
+            <aside id="sidebar" class="w3-bar-item">
+                <h3 class="w3-padding">Kategorien</h3>
+                <ul class="w3-padding w3-ul">
+                    <li><a th:href="@{./(genre=all)}">Alle Spiele</a></li>
+                    <li><a th:href="@{./(genre=action)}">Action</a></li>
+                    <li><a th:href="@{./(genre=adventure)}">Adventure</a></li>
+                    <li><a th:href="@{./(genre=jumpAndRun)}">Jump & Run</a></li>
+                    <li><a th:href="@{./(genre=strategy)}">Strategie</a></li>
+                </ul>
+            </aside>
+            <div class="w3-padding w3-bar-item">
+                <img th:src="${product.coverImagePath}" width="300"/>
+                <h3 th:text="${product.name}"/>
+                <p>
+                    <span th:text="${product.price} + ' €'"/> |
+                    <span th:text="'Verfügbare Menge: ' + ${product.amountAvailable}"/>
+                </p>
+                <p th:text="${product.description}"/>
+            </div>
+        </main>
+
+        <footer th:replace="shop/fragments/footer"/>
+    </body>
+</html>
+

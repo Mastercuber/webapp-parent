@@ -69,6 +69,12 @@ public class ProductSetup  implements ApplicationListener<ContextRefreshedEvent>
                 "Donkey Kong ist ein klassiker unter den Action Spielen. Zuerst erschien es für das Super Nintendo und später auch für ander Nintendo Konsolen.",
                 "adventure"
         );
+        createProduct(
+                "Strategy Breaker",
+                "Ein Strategy Spiel vom feinsten",
+                "Donkey Kong ist ein klassiker unter den Action Spielen. Zuerst erschien es für das Super Nintendo und später auch für ander Nintendo Konsolen.",
+                "strategy"
+        );
     }
 
     private Image createImageIfNotExists(Image image) {

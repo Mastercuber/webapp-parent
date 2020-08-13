@@ -18,6 +18,12 @@ html, body {
     margin-right: 0 !important;
 }
 
+.search-item {
+    width: 298px;
+    display: block;
+    text-decoration: none;
+}
+
 #sidebar {
     background-color: aliceblue;
     width: 300px;

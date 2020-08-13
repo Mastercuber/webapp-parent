@@ -2,12 +2,14 @@ package de.avensio.common;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 @SpringBootApplication
+@ServletComponentScan
 public class CommonApplication {
     public static String IMAGE_DIR = "/img/";
 

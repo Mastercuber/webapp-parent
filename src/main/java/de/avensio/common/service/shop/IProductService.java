@@ -8,7 +8,8 @@ import java.util.List;
 public interface IProductService extends IService<Product> {
 
     List<Product> findProductsByGenre(String genre);
-
     List<Product> findProductsByIds(List<Long> ids);
+    List<Product> findProductsByName(String searchTerm);
+
 
 }

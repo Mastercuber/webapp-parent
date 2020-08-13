@@ -91,6 +91,12 @@ public class ProductController extends AbstractController<Product> implements IS
         deleteByIdInternal(id);
     }
 
+    @RequestMapping(value = "/search/{searchTerm}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Product> searchProducts(@PathVariable("searchTerm") final String searchTerm) {
+        return service.findProductsByName(searchTerm);
+    }
+
     @Override
     protected IRawService<Product> getService() {
         return service;

@@ -1,9 +1,7 @@
 package de.avensio.common.spring.config;
 
-import com.fasterxml.jackson.databind.SerializationFeature;
 import de.avensio.common.CommonApplication;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +17,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafView;
 
-import java.io.File;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -32,7 +29,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
     private SpringTemplateEngine templateEngine;
-    private ApplicationContext applicationContext;
 
     public WebMvcConfig() {
         super();

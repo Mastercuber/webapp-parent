@@ -1,8 +1,8 @@
-package de.avensio.common.web.controller.shop;
+package de.avensio.common.web.controller.shop.view;
 
 import de.avensio.common.service.shop.IProductService;
 import de.avensio.common.service.shop.IShoppingCartService;
-import de.avensio.common.spring.SessionConstants;
+import de.avensio.common.web.session.HttpSessionConstants;
 import de.avensio.common.web.WebConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -16,7 +16,8 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-@Controller(value = WebConstants.CART)
+@Controller
+@RequestMapping(value = WebConstants.CART)
 public class ShoppingCartController {
 
     @Autowired
@@ -24,10 +25,10 @@ public class ShoppingCartController {
     @Autowired
     private IProductService productService;
 
-    @RequestMapping
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView cart(HttpSession session) {
-        ModelAndView mv = new ModelAndView("shopping-cart");
-        HashSet<Long> cartItems = (HashSet<Long>) session.getAttribute(SessionConstants.SHOPPING_CART_ITEMS);
+        ModelAndView mv = new ModelAndView("shop/shopping-cart");
+        HashSet<Long> cartItems = (HashSet<Long>) session.getAttribute(HttpSessionConstants.SHOPPING_CART_ITEMS);
         if (cartItems == null) {
             mv.addObject("products", new ArrayList<>());
         } else {
@@ -46,7 +47,7 @@ public class ShoppingCartController {
             shoppingCartService.addItem(productId);
         }
 
-        return "layout";
+        return "redirect:/";
     }
 
     @RequestMapping(method = RequestMethod.DELETE)

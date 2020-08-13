@@ -12,4 +12,5 @@ import java.util.List;
 public interface IProductJpaDao extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product>, IByNameApi<Product> {
 
     List<Product> findByGenre(String genre);
+    List<Product> findAllByNameContains(String searchTerm);
 }
